@@ -1,4 +1,4 @@
-package com.deeping.domain;
+package com.deeping.domain.Values;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

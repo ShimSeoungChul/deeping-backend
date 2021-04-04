@@ -4,5 +4,3 @@ rootProject.name = 'deeping'
 include 'deeping-common-api'
 include 'deeping-admin-api'
 include 'deeping-customer-api'
-include 'deeping-login-api'
-

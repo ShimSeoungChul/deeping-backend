@@ -28,7 +28,7 @@ public class User {
 
     private String nickName;
     private String hobby;
-    private String voiceIntroduction; //목소리 자기소개 링
+    private String voiceIntroduction; //목소리 자기소개
     private String textIntroduction;  //텍스트 자기소개
 
     @NotNull

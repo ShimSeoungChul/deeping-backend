@@ -2,6 +2,7 @@ package com.deeping.service;
 
 import com.deeping.domain.User;
 import com.deeping.domain.UserRepository;
+import com.deeping.web.PasswordWrongException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -45,6 +46,18 @@ public class UserService {
                 .build();
 
         return userRepository.save(user);
+    }
+
+
+    public User authenticate(String phone, String password) {
+        User user = userRepository.findByPhone(phone)
+                .orElseThrow(() -> new PhoneNotExistedException(phone));
+
+        if(!passwordEncoder.matches(password, user.getPassword())){
+            throw new PasswordWrongException(phone, password);
+        }
+
+        return user;
     }
 
 }
